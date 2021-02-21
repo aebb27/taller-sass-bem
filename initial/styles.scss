@@ -1,5 +1,252 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+$green: #99ddcc;
+$pink: #fa91a7;
+$yellow: #d9e540;
+$white: #fff;
+$arial: Arial, Helvetica, sans-serif;
+$break-small: 800px;
+@mixin vert-horz-orientation($horizontal, $vertical) {
+	justify-content: ($horizontal);
+	align-items: ($vertical);
+}
+@mixin size($width, $height) {
+	width: $width;
+	height: $height;
+}
+.display-flex {
+	display: flex;
+	@include vert-horz-orientation(center, center);
+}
+.size-container {
+	@include size(100%, 80px);
+}
+.text-transform {
+	text-transform: uppercase;
+	letter-spacing: 5px;
+}
+.title-style {
+	font-size: 18px;
+	font-weight: bold;
+}
+.img-dimension {
+	@include size(100%, 100%);
+	object-fit: contain;
+}
+.description {
+	display: flex;
+	flex-direction: column;
+	@include vert-horz-orientation(flex-end, flex-start);
+	background-color: $green;
+	padding: 10px;
+	p {
+		text-transform: uppercase;
+		color: $white;
+		font-weight: 500;
+		letter-spacing: 2px;
+		margin-bottom: 10px;
+	}
+	div {
+		@include size(30px, 5px);
+	}
+	.pink {
+		background-color: $pink;
+	}
+	.yellow {
+		background-color: $yellow;
+	}
+}
 body {
-    background-color: #99DDCC;
-    margin: 0;
-    padding: 0;
+	font-family: $arial;
+}
+header {
+	@extend .size-container;
+	min-width: 320px;
+	background-color: $green;
+	@extend .display-flex;
+	p {
+		color: $white;
+		@extend .text-transform;
+		@extend .title-style;
+	}
+}
+.main-section {
+	img {
+		width: 100%;
+	}
+}
+.search {
+	margin-top: -3.68px;
+	&__title {
+		@extend .display-flex;
+		@extend .text-transform;
+		@extend .size-container;
+		@extend .title-style;
+		background-color: $green;
+		color: $white;
+	}
+	&__input {
+		background-color: $white;
+		display: grid;
+		grid-template-columns: 30px 1fr;
+		padding: 0 10px 0;
+		@include vert-horz-orientation(center, center);
+		input {
+			@extend .size-container;
+			border: 0;
+			outline: none;
+			font-size: inherit;
+			letter-spacing: inherit;
+		}
+		&--icon {
+			background: url(../assets/search-icon.svg) center/cover no-repeat;
+			display: block;
+			@include size(24px, 24px);
+		}
+	}
+}
+.primary {
+	@include size(100%, auto);
+	display: grid;
+	grid-template: 2fr repeat(2, 1fr) 2fr / repeat(2, 1fr);
+	@media screen and (min-width: $break-small) {
+		height: 900px;
+	}
+	img {
+		@include size(100%, 100%);
+		object-fit: cover;
+	}
+	&__img--first {
+		grid-row: 1/3;
+		@media screen and (min-width: $break-small) {
+			grid-row: 1/4;
+		}
+	}
+	&__description--first {
+		@extend .description;
+		grid-column: 2;
+		grid-row: 1/3;
+		@media screen and (min-width: 767px) {
+			padding: 30px;
+			p {
+				font-size: 25px;
+			}
+			div {
+				@include size(50px, 8px);
+			}
+		}
+		@media screen and (min-width: $break-small) {
+			grid-row: 1/2;
+		}
+	}
+	&__img--second {
+		grid-column: 2;
+		grid-row: 3/5;
+		@media screen and (min-width: $break-small) {
+			grid-row: 2/5;
+		}
+	}
+	&__description--second {
+		@extend .description;
+		grid-row: 3 / 5;
+		@media screen and (min-width: 767px) {
+			padding: 30px;
+			p {
+				font-size: 25px;
+			}
+			div {
+				@include size(50px, 8px);
+			}
+		}
+		@media screen and (min-width: $break-small) {
+			grid-row: 4/ 5;
+		}
+	}
+}
+.secondary {
+	@include size(100%, auto);
+	display: grid;
+	grid-template: repeat(2, 1fr) / 1fr;
+	@media screen and (min-width: $break-small) {
+		grid-template: 1fr / 2fr 1fr;
+	}
+	img {
+		width: 100%;
+	}
+	&__img--first {
+		height: 100%;
+		grid-area: 1/1/2/3;
+		@media screen and (min-width: $break-small) {
+			grid-area: 1/1/2/2;
+			height: 900px;
+		}
+	}
+	&__container {
+		display: grid;
+		grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+		@media screen and (min-width: $break-small) {
+			grid-area: 1/2/2/3;
+			grid-template: repeat(3, 1fr) / 1fr;
+		}
+	}
+	&__description--first {
+		@extend .description;
+		grid-area: 1/1/2/3;
+		@media screen and (min-width: 767px) {
+			padding: 30px;
+			p {
+				font-size: 25px;
+			}
+			div {
+				@include size(50px, 8px);
+			}
+		}
+		@media screen and (min-width: $break-small) {
+			grid-area: 1/1/2/2;
+		}
+	}
+	&__img--second {
+		height: 50%;
+		@media screen and (min-width: $break-small) {
+			grid-area: 2/1/3/2;
+			height: 300px;
+			object-fit: cover;
+		}
+	}
+	&__description--second {
+		@extend .description;
+		@media screen and (min-width: 767px) {
+			padding: 30px;
+			p {
+				font-size: 25px;
+			}
+			div {
+				@include size(50px, 8px);
+			}
+		}
+		@media screen and (min-width: $break-small) {
+			grid-area: 3/1/4/2;
+		}
+	}
+}
+.footer {
+	@extend .display-flex;
+	@extend .size-container;
+	@extend .text-transform;
+	font-size: 10px;
+	font-weight: bold;
+	&__container {
+		@extend .display-flex;
+		flex-direction: column;
+	}
+	&__container p:first-child {
+		color: $green;
+		margin-bottom: 5px;
+	}
+	&__container p:last-child {
+		color: $pink;
+	}
 }

@@ -1,38 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<link rel="stylesheet" href="../css/styles.css" />
+		<link
+			rel="stylesheet"
+			href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+			integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+			crossorigin="anonymous"
+		/>
+		<title>SASS Workshop</title>
+	</head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <!-- Styles -->
-  <link rel="stylesheet" href="./styles.css">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-  <!-- Title -->
-  <title>SASS Workshop</title>
-</head>
-
-<body>
-  <!-- Borra este div para comenzar :D -->
-  <div>Wiii... tu primer SASS 🎉</div>
-
-  <!-- Header -->
-  <header></header>
-
-  <!-- Main Section -->
-  <section></section>
-
-  <!-- Search Section -->
-  <section></section>
-
-  <!-- Primary Section -->
-  <section></section>
-
-  <!-- Secondary Section -->
-  <section></section>
-
-  <!-- Footer -->
-  <footer></footer>
-</body>
+	<body>
+		<header>
+			<p>medellin css</p>
+		</header>
+		<section class="main-section">
+			<img src="../assets/main-image-1x.png" alt="hero image" />
+		</section>
+		<section class="search">
+			<div class="search__title">Search</div>
+			<div class="search__input">
+				<i class="search__input--icon"></i>
+				<input
+					type="text"
+					placeholder="Busca tu animal"
+					aria-label="Busca tu animal"
+				/>
+			</div>
+		</section>
+		<section class="primary">
+			<img
+				class="primary__img--first"
+				src="../assets/crab-tile-1x.png"
+				alt="cangrejo"
+			/>
+			<div class="primary__description--first">
+				<p>cangrejos</p>
+				<div class="description__rectangle pink"></div>
+			</div>
+			<img
+				class="primary__img--second"
+				src="../assets/butterfly-tile-1x.png"
+				alt="mariposa"
+			/>
+			<div class="primary__description--second">
+				<p>mariposas</p>
+				<div class="description__rectangle yellow"></div>
+			</div>
+		</section>
+		<section class="secondary">
+			<img
+				class="secondary__img--first"
+				src="../assets/cat-tile-1x.png"
+				alt="gato"
+			/>
+			<div class="secondary__container">
+				<div class="secondary__description--first">
+					<p>gatos majestuosos</p>
+					<div class="description__rectangle yellow"></div>
+				</div>
+				<img
+					class="secondary__img--second"
+					src="../assets/deer-tile-1x.png"
+					alt="reno"
+				/>
+				<div class="secondary__description--second">
+					<p>ciervooos</p>
+					<div class="description__rectangle pink"></div>
+				</div>
+			</div>
+		</section>
+		<footer class="footer">
+			<div class="footer__container">
+				<p>created by</p>
+				<p>@aebb27</p>
+			</div>
+		</footer>
+	</body>
 </html>
